@@ -28,3 +28,8 @@ resilience4j:
           - java.io.IOException
           - java.util.concurrent.TimeoutException
           - org.springframework.web.client.ResourceAccessException
+  retry:
+    instances:
+      service1:
+        max-attempts: 5
+        wait-duration: 5s

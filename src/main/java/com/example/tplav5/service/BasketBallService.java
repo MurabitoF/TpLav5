@@ -2,7 +2,6 @@ package com.example.tplav5.service;
 
 
 import com.example.tplav5.model.BasketBallData;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 import java.io.IOException;

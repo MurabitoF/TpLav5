@@ -3,6 +3,7 @@ package com.example.tplav5.controller;
 import com.example.tplav5.model.BasketBallData;
 import com.example.tplav5.service.BasketBallService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -48,7 +49,8 @@ public class BasketBallController {
     }
 
     @GetMapping("/failed")
-    @CircuitBreaker(name = "service1", fallbackMethod = "service1Fallback")
+//    @CircuitBreaker(name = "service1", fallbackMethod = "service1Fallback")
+    @Retry(name = "service1", fallbackMethod = "service1Fallback")
     public String failedRequest() throws IOException, InterruptedException {
         return basketBallService.getDataFromApiOff();
     }
